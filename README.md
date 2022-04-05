@@ -18,6 +18,8 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   2. https://9elements.github.io/fancy-border-radius/
   3. https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow
   4. https://codepen.io/Mashbu01/pen/VmLVQR
+  5. https://www.w3schools.com/howto/howto_css_rounded_images.asp
+  6. https://www.codegrepper.com/code-examples/css/how+to+use+a+blank+space+with+grid+template+areas+css
 
 
 
@@ -97,7 +99,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Je ontwerp:
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="ontwerp opdracht 2">
+  <img src="readme-images/storyboard_opdracht2.png" width="375px" alt="storyboard voor opdracht 1">
 
 
   ### Je ambitie: 

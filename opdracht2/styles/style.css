@@ -1,26 +1,27 @@
-/* CSS Document */
-
-/*********/
-/* FONTS */
-/*********/
+/**********************************/
+/**********************************/
+/**************imports**************/
+/**********************************/
+/**********************************/
 @font-face {
-	font-family: 'eenfont';
-	src: url('../fonts/eenfont.woff2') format('woff2'),
-			 url('../fonts/eenfont.woff') format('woff');
+	font-family: 'PressStart2P';
+	src: url('../fonts/PressStart2P-Regular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
-
 }
 
 
 
 
 
-/**************/
-/* CSS REMEDY */
-/**************/
+
+/**********************************/
+/**********************************/
+/**************remedy**************/
+/**********************************/
+/**********************************/
 *, *::after, *::before {
-  box-sizing:border-box;  
+    box-sizing: border-box;  
 }
 
 button, summary {
@@ -31,27 +32,230 @@ button, summary {
 
 
 
-/*********************/
-/* CUSTOM PROPERTIES */
-/*********************/
+
+/**********************************/
+/**********************************/
+/***********custom props***********/
+/**********************************/
+/**********************************/
 :root {
-	/* startje */
-	--color-main:#111;
-	--color-background:#eee;
+    --main-font: 'PressStart2P';
+
+	--grijs: #C1C0C2;
+	--zwart: #000000;
+	--wit: #ffffff;
+	--blauw: #010C75;
+
 }
 
+/* @media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0f0e17;
+        --rood: #d82300;
+        --oranje: #ff8730;
+        --geel: #72757e;
+        --bruin: #272727;
+        --groen: #474747;
+    }
+} */
 
 
 
 
-/****************/
-/* JOUW STYLING */
-/****************/
+
 body {
-  font-family:eenfont, sans-serif;
-  color:var(--color-main);
-  background-color:var(--color-background);
+	background-color: var(--grijs);
+	font-family: var(--main-font);
+	font-size: 1vmax;
+	margin: 0;
 }
 
-/* jouw code */
 
+
+
+
+/**********************************/
+/**********************************/
+/**************header**************/
+/**********************************/
+/**********************************/
+header {
+	background-color: var(--blauw);
+	margin: 0;
+	padding: 0 0 10vmax 0;
+}
+
+h1 {
+	font-size: 1.2vmax;
+	color: var(--wit);
+
+	/* background-color: palegreen; */
+	position: absolute;
+	top: 37px;
+	left: 15px;
+}
+
+header ul {
+	display: flex;
+	position: absolute;
+	top: 37px;
+	right: 15px;
+	list-style-type: none;
+}
+
+header ul li a {
+	background-color: var(--grijs);
+	color: var(--zwart);
+	padding: 7px;
+	border-style: groove;
+	text-decoration: none;
+}
+
+header ul li:last-of-type {
+	padding-left: 10px;
+}
+
+
+
+
+
+/**********************************/
+/**********************************/
+/****************nav***************/
+/**********************************/
+/**********************************/
+nav ul {
+	display: flex;
+	margin: 3vmax 0;
+	padding-left: 15px;
+}
+
+nav ul li {
+	list-style-type: none;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 0 1vmin;
+}
+
+nav ul li a {
+	color: var(--zwart);
+	padding-right: 1vmax;
+}
+
+hr {
+	margin: 2vmax 15px;
+	border: 0.3px groove var(--zwart);
+}
+
+
+
+
+
+
+/**********************************/
+/**********************************/
+/***************grid***************/
+/**********************************/
+/**********************************/
+main {
+	display: grid;
+	/* grid-template-columns: 1fr 1fr 1fr 1fr; */
+	grid-template-columns: min-content;
+	grid-template-areas: 
+	"img aantalP aantalFS aantalFG"
+	"img posts followers following"
+	"img button button button";
+	/* grid-gap: 5px; */
+}
+
+main img {
+	grid-area: img;
+}
+
+img {
+	width: 25vmin;
+	border-radius: 50%;
+	margin-left: 15px;
+}
+
+
+main p {
+	/* padding-left: 2vmax; */
+	text-align: center;
+	margin: 0;
+}
+
+main p:nth-of-type(1), main p:nth-of-type(2), main p:nth-of-type(3) {
+	font-size: 1.5vmax;
+	margin-top: 1vmax;
+}
+
+main p:nth-of-type(4), main p:nth-of-type(5), main p:nth-of-type(6) {
+	font-size: 0.8vmax;
+}
+
+main p:nth-of-type(1) {
+	grid-area: aantalP;
+}
+
+main p:nth-of-type(2) {
+	grid-area: aantalFS;
+}
+
+main p:nth-of-type(3) {
+	grid-area: aantalFG;
+}
+
+main p:nth-of-type(4) {
+	grid-area: posts;
+}
+
+main p:nth-of-type(5) {
+	grid-area: followers;
+}
+
+main p:nth-of-type(6) {
+	grid-area: following;
+}
+
+
+
+main button {
+	grid-area: button;
+}
+
+button {
+	font-family: var(--main-font);
+	font-size: 1.2vmax;
+	padding: 0.5vmax;
+	/* margin: 1vmax 15px 0 15px; */
+	width: 85%;
+	margin: 0 auto;
+
+
+	background-color: var(--grijs);
+	border-width: 1.5px;
+}
+
+
+
+
+
+
+/**********************************/
+/**********************************/
+/************responsive************/
+/**********************************/
+/**********************************/
+@media only screen and (min-width: 800px){
+	main {
+		grid-template-areas: 
+		"img aantalP aantalFS aantalFG ."
+		"img posts followers following ."
+		"img button button button ."; /* een . zorgt voor een blank space*/
+	}
+
+	button {
+		width: 75%;
+	}
+  }
