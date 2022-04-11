@@ -1,6 +1,6 @@
 /**********************************/
 /**********************************/
-/**************imports**************/
+/**************imports*************/
 /**********************************/
 /**********************************/
 @font-face {
@@ -13,7 +13,7 @@
 
 
 
-
+ 
 
 /**********************************/
 /**********************************/
@@ -41,36 +41,102 @@ button, summary {
 :root {
     --main-font: 'PressStart2P';
 
-	--grijs: #C1C0C2;
+	--grijs: #C0C0C0;
 	--zwart: #000000;
 	--wit: #ffffff;
-	--blauw: #010C75;
-
+	--blauw: #0000FF;
+	--groen: #3B8589;
+	--dropshadow: #00000040;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
-        --background: #0f0e17;
-        --rood: #d82300;
-        --oranje: #ff8730;
-        --geel: #72757e;
-        --bruin: #272727;
-        --groen: #474747;
-    }
-} */
+		--grijs: #2c2c2c;
+		--zwart: #ffffff;
+		--wit: #070606;
+		--blauw: #000080;
+		--groen: #3B8589;
+		--dropshadow: #FFFFFF1A;
+	}
+	
+	section:nth-of-type(3) ul {
+		filter: brightness(80%); /* --> https://www.dailysmarty.com/posts/how-to-darken-an-image-with-css */
+	}
+}
+
+
+
+
+
+
+/**********************************/
+/**********************************/
+/***********kleurgebruik***********/
+/**********************************/
+/**********************************/
+body {
+	background-color: var(--grijs);
+}
+
+main section:first-of-type p, main section:first-of-type button {
+	color: var(--zwart);
+}
+
+
+
+
+
+
+
+
 
 
 
 
 
 body {
-	background-color: var(--grijs);
 	font-family: var(--main-font);
 	font-size: 1vmax;
 	margin: 0;
 }
 
+main, nav {
+	padding: 0 15px;
+}
 
+button {
+	font-family: var(--main-font);
+	font-size: 1.1vmax;
+	background-color: var(--grijs);
+	border: 1.5px groove var(--zwart);
+	box-shadow: 0px 4px 4px 0px var(--dropshadow);
+}
+
+ul {
+	list-style-type: none;
+}
+
+
+
+
+
+/**********************************/
+/**********************************/
+/**************hover***************/
+/**********************************/
+/**********************************/
+/* header ul li:hover a, button:hover, .grid:hover, .list:hover, .location:hover, .tagged:hover {
+	box-shadow: 0px 4px 4px 0px var(--dropshadow) inset;
+} */
+
+header ul li:hover a, button:hover {
+	box-shadow: 0px 4px 4px 0px var(--dropshadow) inset;
+}
+
+button:active {
+	background-color: var(--groen);
+	color: var(--wit);
+}
 
 
 
@@ -82,37 +148,35 @@ body {
 header {
 	background-color: var(--blauw);
 	margin: 0;
-	padding: 0 0 10vmax 0;
+	padding: 0 0 73px 0; /* blijft altijd even hoog */
 }
 
 h1 {
-	font-size: 1.2vmax;
-	color: var(--wit);
-
-	/* background-color: palegreen; */
+	font-size: 1.1vmax;
+	color: #ffffff; /* blijft altijd wit */
 	position: absolute;
-	top: 37px;
+	top: 40px; /* andere verhouding vergeleken desktop */
 	left: 15px;
 }
 
 header ul {
 	display: flex;
 	position: absolute;
-	top: 37px;
+	top: 37px; 
 	right: 15px;
-	list-style-type: none;
+}
+
+header ul li {
+	padding-left: 1vmin;
 }
 
 header ul li a {
-	background-color: var(--grijs);
-	color: var(--zwart);
-	padding: 7px;
-	border-style: groove;
+	background-color: #C0C0C0; /* blijft altijd grijs */
+	color: #000000; /* blijft altijd zwart */
+	padding: 5px;
+	border: 1.5px groove #000000; /* blijft altijd zwart */
+	box-shadow: 0px 4px 4px 0px var(--dropshadow);
 	text-decoration: none;
-}
-
-header ul li:last-of-type {
-	padding-left: 10px;
 }
 
 
@@ -126,12 +190,11 @@ header ul li:last-of-type {
 /**********************************/
 nav ul {
 	display: flex;
-	margin: 3vmax 0;
-	padding-left: 15px;
+	margin: 1.5vmax 0;
+	padding: 1vmax 0 0 0;
 }
 
 nav ul li {
-	list-style-type: none;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding: 0 1vmin;
@@ -143,7 +206,7 @@ nav ul li a {
 }
 
 hr {
-	margin: 2vmax 15px;
+	margin: 2vmax 0;
 	border: 0.3px groove var(--zwart);
 }
 
@@ -157,85 +220,160 @@ hr {
 /***************grid***************/
 /**********************************/
 /**********************************/
-main {
+
+/*********section 1*********/
+main section:first-of-type {
 	display: grid;
-	/* grid-template-columns: 1fr 1fr 1fr 1fr; */
-	grid-template-columns: min-content;
+	grid-template-columns: repeat(4, 1fr); /* 4 columns die allemaal 1fr breed zijn */
+	grid-template-rows: 4em 3em 6em 2em;
 	grid-template-areas: 
 	"img aantalP aantalFS aantalFG"
 	"img posts followers following"
-	"img button button button";
-	/* grid-gap: 5px; */
+	"img button button button" 
+	"naam naam naam naam"
+	"bio bio bio bio";
 }
 
-main img {
+main section:first-of-type img {
 	grid-area: img;
-}
-
-img {
-	width: 25vmin;
+	width: 10vmax;
 	border-radius: 50%;
-	margin-left: 15px;
 }
 
-
-main p {
-	/* padding-left: 2vmax; */
+main section:first-of-type p {
 	text-align: center;
 	margin: 0;
 }
 
-main p:nth-of-type(1), main p:nth-of-type(2), main p:nth-of-type(3) {
-	font-size: 1.5vmax;
+main section:first-of-type p:nth-of-type(1), main section:first-of-type p:nth-of-type(2), main section:first-of-type p:nth-of-type(3) {
+	font-size: 1.4vmax;
 	margin-top: 1vmax;
 }
 
-main p:nth-of-type(4), main p:nth-of-type(5), main p:nth-of-type(6) {
+main section:first-of-type p:nth-of-type(4), main section:first-of-type p:nth-of-type(5), main section:first-of-type p:nth-of-type(6) {
 	font-size: 0.8vmax;
 }
 
-main p:nth-of-type(1) {
+main section:first-of-type p:nth-of-type(1) {
 	grid-area: aantalP;
 }
 
-main p:nth-of-type(2) {
+main section:first-of-type p:nth-of-type(2) {
 	grid-area: aantalFS;
 }
 
-main p:nth-of-type(3) {
+main section:first-of-type p:nth-of-type(3) {
 	grid-area: aantalFG;
 }
 
-main p:nth-of-type(4) {
+main section:first-of-type p:nth-of-type(4) {
 	grid-area: posts;
 }
 
-main p:nth-of-type(5) {
+main section:first-of-type p:nth-of-type(5) {
 	grid-area: followers;
 }
 
-main p:nth-of-type(6) {
+main section:first-of-type p:nth-of-type(6) {
 	grid-area: following;
 }
 
+main section:first-of-type p:nth-of-type(7) {
+	grid-area: naam;
+}
+	
+main section:first-of-type p:nth-of-type(8) {
+	grid-area: bio;
+}
 
+main section:first-of-type p:nth-of-type(7), main section:first-of-type p:nth-of-type(8) {
+	text-align: left;
+}
 
-main button {
+main section:first-of-type button {
 	grid-area: button;
-}
-
-button {
-	font-family: var(--main-font);
-	font-size: 1.2vmax;
-	padding: 0.5vmax;
-	/* margin: 1vmax 15px 0 15px; */
 	width: 85%;
+	height: 3.4vmax;
 	margin: 0 auto;
-
-
-	background-color: var(--grijs);
-	border-width: 1.5px;
 }
+/*********section 1*********/
+
+
+
+
+
+
+/**********************************/
+/**********************************/
+/***************main***************/
+/**********************************/
+/**********************************/
+
+/*********section 2*********/
+main section:nth-of-type(2) ul {
+	display: flex;  
+	padding: 0;
+}
+  
+main section:nth-of-type(2) ul li {  
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+	padding: 0.7em;
+	margin: 0 0.5em;
+	border: 1.5px groove var(--zwart);
+	box-shadow: 0px 4px 4px 0px var(--dropshadow);
+} 
+
+main section:nth-of-type(2) ul li a img {
+	height: 12px;
+} 
+/*********section 2*********/
+
+
+
+/*********section 3*********/  
+aside img {
+	width: 10px;
+	height: 10px; 
+}
+
+[type=radio] { /* verbergt radio button --> https://yogeshchauhan.com/how-to-use-images-instead-of-html-radio-buttons-using-css/ */
+	position: absolute;
+	opacity: 0;
+}
+
+
+section:nth-of-type(3) ul {
+	background-image:url('../images/landscape_background_mobile.png'); /* --> https://www.freecodecamp.org/news/how-to-add-an-image-url-to-your-div/ */
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* 3 columns die allemaal 1fr breed zijn */
+	overflow: scroll;
+	border: 1.5px groove var(--zwart);
+	height: 56vmax;
+	padding: 4px;
+}
+
+section:nth-of-type(3) ul li {
+	margin: 4px;
+	cursor: pointer; 
+}
+
+section:nth-of-type(3) ul li img {
+	width: 12.5vmax;
+	height: 12.5vmax;
+	border: 1.5px solid #000000; /* blijft altijd zwart */
+}
+
+  
+section:nth-of-type(3) ul.location li:not(.inLocation) {
+	display: none;
+}
+  
+section:nth-of-type(3) ul.tagged li:not(.inTagged) {
+	display: none;
+}
+/*********section 3*********/
 
 
 
@@ -247,15 +385,62 @@ button {
 /************responsive************/
 /**********************************/
 /**********************************/
-@media only screen and (min-width: 800px){
-	main {
-		grid-template-areas: 
-		"img aantalP aantalFS aantalFG ."
-		"img posts followers following ."
-		"img button button button ."; /* een . zorgt voor een blank space*/
+@media only screen and (min-width: 800px) {
+	h1 {
+		top: 29px;
 	}
 
-	button {
-		width: 75%;
+	header ul {
+		top: 22px;
 	}
-  }
+
+
+	/*********section 1*********/
+	main section:first-of-type {
+		grid-template-columns: 10vmax 10vmax 10vmax 10vmax auto;
+		grid-template-rows: 4em 3em 1.5em;
+		grid-template-areas: 
+		"img aantalP aantalFS aantalFG button"
+		"img posts followers following ." /* een . zorgt voor een blank space */
+		"img naam naam naam naam"
+		"img bio bio bio bio"; 
+	}
+
+	main section:first-of-type button {
+		width: 55%;
+		margin-right: 0;
+	}
+	
+	main section:first-of-type p:nth-of-type(7), main section:first-of-type p:nth-of-type(8) {
+		padding-left: 3em;
+	}
+	/*********section 1*********/
+
+
+	/*********section 2*********/
+	main section:nth-of-type(2) ul li {  
+		justify-content: center;
+		padding: 0.7em;
+		margin: 0 0.5em;
+	}
+
+	main section:nth-of-type(2) ul li a img {
+		height: 18px;
+	} 
+	/*********section 2*********/
+
+
+	/*********section 3*********/
+	section:nth-of-type(3) ul {
+		background-image:url('../images/landscape_background_desktop.png'); /* --> https://www.freecodecamp.org/news/how-to-add-an-image-url-to-your-div/ */
+		grid-template-columns: repeat(5, 1fr); /* 5 columns die allemaal 1fr breed zijn */
+		height: 85vmin;
+		padding: 10px;
+  	}
+  
+	  section:nth-of-type(3) ul li img {
+		width: 32vmin;
+	  	height: 32vmin;
+	}
+	/*********section 3*********/
+}
