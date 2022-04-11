@@ -43,14 +43,14 @@
 		<section><!-- section 1 -->
 			<img src="images/avatar.png" alt="Avatar">
 			<p>60</p>
-			<p>11k</p>
+			<div id="followers">920</div>
 			<p>569</p>
 
 			<p>posts</p>
 			<p>followers</p>
 			<p>following</p>
 
-			<button>+ follow</button>
+			<button id="followButton">+ Follow</button>
 
 			<p>Larissa Hartsteen</p>
 			<p>Leuke bio moet hier komen..</p>
@@ -59,40 +59,39 @@
 
 		<hr> <!-- maakt horizontale lijn aan -->
 
-
 		<section><!-- section 2 -->
-			<ul>	
-				<li class="grid"><a href="index.html"><img src="images/grid_icon.png" alt="grid"></a></li>
-				<li class="list"><a href="index.html"><img src="images/list_icon.png" alt="list"></a></li>
-				<li class="location"><a href="index.html"><img src="images/location_icon.png" alt="location"></a></li>
-				<li class="tagged"><a href="index.html"><img src="images/tagged_icon.png" alt="tagged"></a></li>
-			</ul>
-		</section>
-
-
-		<section><!-- section 3 -->
 			<aside aria-label="filteren en sorteren"> <!-- bij het openen van de pagina geen filter -> grid -->
 			<!-- aria is een attribuut dat bijv. een screen reader helpt een label aan een verder anoniem HTML-element te koppelen -->
-				<input type="radio" name="filter" value="grid" id="filter-grid" checked>
-				<label for="filter-grid"></label><!-- de values van de radio buttons worden zo gebruikt om te filteren -->
-				<img src="images/grid_icon.png">
-
-				<input type="radio" name="filter" value="list" id="filter-list">
-				<label for="filter-list"></label>
-				<img src="images/list_icon.png">
 				
-				<input type="radio" name="filter" value="location" id="filter-location">
-				<label for="filter-location"></label>
-				<img src="images/location_icon.png">
+				<div>
+					<input type="radio" name="filter" value="grid" id="filter-grid" checked>
+					<label for="filter-grid"></label><!-- de values van de radio buttons worden zo gebruikt om te filteren -->
+					<img src="images/grid_icon.png">
+				</div>
 
-				<input type="radio" name="filter" value="tagged" id="filter-tagged">
-				<label for="filter-tagged"></label>
-				<img src="images/tagged_icon.png">
+				<div>
+					<input type="radio" name="filter" value="list" id="filter-list">
+					<label for="filter-list"></label>
+					<img src="images/list_icon.png">
+				</div>
+				
+				<div>
+					<input type="radio" name="filter" value="location" id="filter-location">
+					<label for="filter-location"></label>
+					<img src="images/location_icon.png">
+				</div>
+
+				<div>
+					<input type="radio" name="filter" value="tagged" id="filter-tagged">
+					<label for="filter-tagged"></label>
+					<img src="images/tagged_icon.png">
+				</div>
+
 			</aside>
 
 
 			<ul class="grid">
-			  <li class="inTagged"><!-- elke li heeft een class die aangeeft wat voor type karakter het is -->
+			  <li class="inTagged"><!-- elke li heeft een class die aangeeft wat voor een foto het is -->
 				<img src="images/hiddleston.jpg" alt=""/>
 			  </li>
 

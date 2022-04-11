@@ -129,11 +129,11 @@ ul {
 	box-shadow: 0px 4px 4px 0px var(--dropshadow) inset;
 } */
 
-header ul li:hover a, button:hover {
+header ul li:hover a, button:hover { /* wanneer je over button heen hovert*/
 	box-shadow: 0px 4px 4px 0px var(--dropshadow) inset;
 }
 
-button:active {
+button:active { /* wanneer button in wordt geklikt*/
 	background-color: var(--groen);
 	color: var(--wit);
 }
@@ -217,11 +217,9 @@ hr {
 
 /**********************************/
 /**********************************/
-/***************grid***************/
+/*************section 1************/
 /**********************************/
 /**********************************/
-
-/*********section 1*********/
 main section:first-of-type {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr); /* 4 columns die allemaal 1fr breed zijn */
@@ -240,17 +238,17 @@ main section:first-of-type img {
 	border-radius: 50%;
 }
 
-main section:first-of-type p {
+main section:first-of-type p, main section:first-of-type div {
 	text-align: center;
 	margin: 0;
 }
 
-main section:first-of-type p:nth-of-type(1), main section:first-of-type p:nth-of-type(2), main section:first-of-type p:nth-of-type(3) {
+main section:first-of-type p:nth-of-type(1), main section:first-of-type div, main section:first-of-type p:nth-of-type(2) {
 	font-size: 1.4vmax;
 	margin-top: 1vmax;
 }
 
-main section:first-of-type p:nth-of-type(4), main section:first-of-type p:nth-of-type(5), main section:first-of-type p:nth-of-type(6) {
+main section:first-of-type p:nth-of-type(3), main section:first-of-type p:nth-of-type(4), main section:first-of-type p:nth-of-type(5) {
 	font-size: 0.8vmax;
 }
 
@@ -258,35 +256,35 @@ main section:first-of-type p:nth-of-type(1) {
 	grid-area: aantalP;
 }
 
-main section:first-of-type p:nth-of-type(2) {
+main section:first-of-type div {
 	grid-area: aantalFS;
 }
 
-main section:first-of-type p:nth-of-type(3) {
+main section:first-of-type p:nth-of-type(2) {
 	grid-area: aantalFG;
 }
 
-main section:first-of-type p:nth-of-type(4) {
+main section:first-of-type p:nth-of-type(3) {
 	grid-area: posts;
 }
 
-main section:first-of-type p:nth-of-type(5) {
+main section:first-of-type p:nth-of-type(4) {
 	grid-area: followers;
 }
 
-main section:first-of-type p:nth-of-type(6) {
+main section:first-of-type p:nth-of-type(5) {
 	grid-area: following;
 }
 
-main section:first-of-type p:nth-of-type(7) {
+main section:first-of-type p:nth-of-type(6) {
 	grid-area: naam;
 }
 	
-main section:first-of-type p:nth-of-type(8) {
+main section:first-of-type p:nth-of-type(7) {
 	grid-area: bio;
 }
 
-main section:first-of-type p:nth-of-type(7), main section:first-of-type p:nth-of-type(8) {
+main section:first-of-type p:nth-of-type(6), main section:first-of-type p:nth-of-type(7) {
 	text-align: left;
 }
 
@@ -296,8 +294,6 @@ main section:first-of-type button {
 	height: 3.4vmax;
 	margin: 0 auto;
 }
-/*********section 1*********/
-
 
 
 
@@ -305,17 +301,14 @@ main section:first-of-type button {
 
 /**********************************/
 /**********************************/
-/***************main***************/
+/*************section 2************/
 /**********************************/
 /**********************************/
-
-/*********section 2*********/
-main section:nth-of-type(2) ul {
+aside {
 	display: flex;  
-	padding: 0;
 }
-  
-main section:nth-of-type(2) ul li {  
+
+aside div {
 	display: flex;
 	flex-grow: 1;
 	justify-content: center;
@@ -325,15 +318,7 @@ main section:nth-of-type(2) ul li {
 	box-shadow: 0px 4px 4px 0px var(--dropshadow);
 } 
 
-main section:nth-of-type(2) ul li a img {
-	height: 12px;
-} 
-/*********section 2*********/
-
-
-
-/*********section 3*********/  
-aside img {
+aside div img {
 	width: 10px;
 	height: 10px; 
 }
@@ -343,8 +328,7 @@ aside img {
 	opacity: 0;
 }
 
-
-section:nth-of-type(3) ul {
+section:nth-of-type(2) ul {
 	background-image:url('../images/landscape_background_mobile.png'); /* --> https://www.freecodecamp.org/news/how-to-add-an-image-url-to-your-div/ */
 	display: grid;
 	grid-template-columns: repeat(3, 1fr); /* 3 columns die allemaal 1fr breed zijn */
@@ -354,26 +338,31 @@ section:nth-of-type(3) ul {
 	padding: 4px;
 }
 
-section:nth-of-type(3) ul li {
+section:nth-of-type(2) ul li {
 	margin: 4px;
 	cursor: pointer; 
 }
 
-section:nth-of-type(3) ul li img {
+section:nth-of-type(2) ul li img {
 	width: 12.5vmax;
 	height: 12.5vmax;
 	border: 1.5px solid #000000; /* blijft altijd zwart */
+	transition: transform ease-in-out 0.3s; /* foto vergroten */
 }
 
-  
-section:nth-of-type(3) ul.location li:not(.inLocation) {
+section:nth-of-type(2) ul li img:hover { 
+	transform: scale(1.1); /* foto vergroten met hover */
+}
+
+
+section:nth-of-type(2) ul.location li:not(.inLocation) {
 	display: none;
 }
   
-section:nth-of-type(3) ul.tagged li:not(.inTagged) {
+section:nth-of-type(2) ul.tagged li:not(.inTagged) {
 	display: none;
 }
-/*********section 3*********/
+/*********section 2*********/
 
 
 
@@ -411,36 +400,32 @@ section:nth-of-type(3) ul.tagged li:not(.inTagged) {
 		margin-right: 0;
 	}
 	
-	main section:first-of-type p:nth-of-type(7), main section:first-of-type p:nth-of-type(8) {
+	main section:first-of-type p:nth-of-type(6), main section:first-of-type p:nth-of-type(7) {
 		padding-left: 3em;
 	}
 	/*********section 1*********/
 
 
 	/*********section 2*********/
-	main section:nth-of-type(2) ul li {  
-		justify-content: center;
-		padding: 0.7em;
-		margin: 0 0.5em;
+	aside {
+		width: 40%;
+	}
+	
+	aside div img {
+		width: auto;
+		height: 16px; 
 	}
 
-	main section:nth-of-type(2) ul li a img {
-		height: 18px;
-	} 
-	/*********section 2*********/
-
-
-	/*********section 3*********/
-	section:nth-of-type(3) ul {
+	section:nth-of-type(2) ul {
 		background-image:url('../images/landscape_background_desktop.png'); /* --> https://www.freecodecamp.org/news/how-to-add-an-image-url-to-your-div/ */
 		grid-template-columns: repeat(5, 1fr); /* 5 columns die allemaal 1fr breed zijn */
 		height: 85vmin;
 		padding: 10px;
   	}
   
-	  section:nth-of-type(3) ul li img {
+	section:nth-of-type(2) ul li img {
 		width: 32vmin;
 	  	height: 32vmin;
 	}
-	/*********section 3*********/
+	/*********section 2*********/
 }
