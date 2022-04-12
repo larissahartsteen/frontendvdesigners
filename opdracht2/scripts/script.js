@@ -141,6 +141,36 @@ document.addEventListener('keydown', doorSlidesMetToetsen); /* het document luis
 
 
 
+///////////////////////////
+///////////////////////////
+// swipen /////////////////
+///////////////////////////
+///////////////////////////
+var deBanaan = document.querySelector('section:nth-of-type(3).swipeOverBanaan div');
+var touchstartX = 0;
+var touchendX = 0;
+var bewegingsZone = deBanaan;
+
+bewegingsZone.addEventListener('touchstart', function(event) {
+    touchstartX = event.changedTouches[0].screenX;
+}, false);
+
+bewegingsZone.addEventListener('touchend', function(event) {
+    touchendX = event.changedTouches[0].screenX;
+    handleGesure();
+}, false); 
+
+function handleGesure() {
+    if (touchendX < touchstartX) { // naar links swipen
+        deBanaan.classList.add("erIsOverMijGeswipet");
+    }
+    if (touchendX > touchstartX) { // naar rechts swipen
+        deBanaan.classList.remove("erIsOverMijGeswipet");
+    }
+}
+  
+  
+
 
 
   
@@ -162,50 +192,3 @@ document.addEventListener('keydown', doorSlidesMetToetsen); /* het document luis
 //       sessionStorage.setItem("modal", "none");
 //     };
 //   };
-
-
-
-
-
-
-
-
-
-
-
-
-/**********************/
-/* swipe-over-element */
-/**********************/
-
-/* https://gist.github.com/akella/f1e787d780afe1c1159e99c8bed92b55 */
-
-/* testen op je telefoon of in de inspector --> touch device */
-
-var deLamp = document.querySelector('section:nth-of-type(3).swipe-over-element div');
-var touchstartX = 0;
-var touchendX = 0;
-
-var gesturedZone = deLamp;
-
-gesturedZone.addEventListener('touchstart', function(event) {
-  touchstartX = event.changedTouches[0].screenX;
-}, false);
-
-gesturedZone.addEventListener('touchend', function(event) {
-  touchendX = event.changedTouches[0].screenX;
-  handleGesure();
-}, false); 
-
-function handleGesure() {
-  /* swipe naar links */
-  if (touchendX < touchstartX) {
-    deLamp.classList.add("erIsOverMijGeswipet");
-  }
-  /* swipe naar rechts */
-  if (touchendX > touchstartX) {
-    deLamp.classList.remove("erIsOverMijGeswipet");
-  }
-}
-  
-  

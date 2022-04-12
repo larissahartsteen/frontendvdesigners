@@ -87,7 +87,19 @@ main section:first-of-type p, main section:first-of-type button {
 
 
 
+/**********************************/
+/**********************************/
+/**************hover***************/
+/**********************************/
+/**********************************/
+button:hover, header ul li:hover a:hover, section:nth-of-type(2) div:hover, .error main section > a:hover, .error main section div a:hover { /* wanneer je over button heen hovert */
+	box-shadow: 0px 4px 4px 0px var(--dropshadow) inset;
+}
 
+button:active, header ul li:hover a:active, section:nth-of-type(2) div:active, .error main section > a:active, .error main section div a:active { /* wanneer button in wordt geklikt*/
+	background-color: var(--groen);
+	color: var(--wit);
+}
 
 
 
@@ -115,24 +127,6 @@ button {
 
 ul {
 	list-style-type: none;
-}
-
-
-
-
-
-/**********************************/
-/**********************************/
-/**************hover***************/
-/**********************************/
-/**********************************/
-header ul li:hover a, section:nth-of-type(2) div:hover { /* wanneer je over button heen hovert */
-	box-shadow: 0px 4px 4px 0px var(--dropshadow) inset;
-}
-
-button:active, section:nth-of-type(2) div:active { /* wanneer button in wordt geklikt*/
-	background-color: var(--groen);
-	color: var(--wit);
 }
 
 
@@ -167,7 +161,7 @@ header ul li {
 	padding-left: 1vmin;
 }
 
-header ul li a {
+header ul li a, .error section div a {
 	background-color: #C0C0C0; /* blijft altijd grijs */
 	color: #000000; /* blijft altijd zwart */
 	padding: 5px;
@@ -358,6 +352,7 @@ section:nth-of-type(2) ul li img, section:nth-of-type(2) ul.grid-view li img {
 	border: 1.5px solid #000000; /* blijft altijd zwart */
 	transition: transform ease-in-out 0.3s; /* foto vergroten */
 	margin: 0 auto;
+	z-index: 2;
 }
 /* einde list & grid view */
 
@@ -399,7 +394,7 @@ section:nth-of-type(2) ul.slideshow-view li.active {
 	padding: 0.7em;
 	margin: 0 0.5em;
 	position: absolute;
-	bottom: 40px;
+	bottom: 43px;
 	background-color: var(--grijs);
 	border: 1.5px groove #000000; /* blijft altijd zwart */
 }
@@ -434,31 +429,55 @@ section:nth-of-type(2) ul.tagged li:not(.inTagged) {
 
 
 
-
-section:nth-of-type(3).swipe-over-element div {
-	margin:.5em;
-	padding:1em;
-	border-radius:.5em; 
+/**********************************/
+/**********************************/
+/**********dansende banaan*********/
+/**********************************/
+/**********************************/
+section:nth-of-type(3).swipeOverBanaan div {
+	margin: 2em;
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	
-	/* jouw code hier */
-	transition:1s;
-  }
+	transition: 1s;
+	z-index: 3;
+
+}
   
-  section:nth-of-type(3).swipe-over-element div.erIsOverMijGeswipet {
-	/* jouw code hier */
+section:nth-of-type(3).swipeOverBanaan div.erIsOverMijGeswipet {
 	transform: translateX(-210%);
-  }
+}
   
-  section:nth-of-type(3).swipe-over-element div img {
+section:nth-of-type(3).swipeOverBanaan div img {
 	width: auto;
 	height: 25vmax;
-	vertical-align:middle;
-  }
+	vertical-align: middle;
+}
   
+@keyframes bouncingBanaan-animation {
+	0% {
+	  transform:translatey(100vmax);
+	  animation-timing-function:cubic-bezier(0.170, 0.850, 0.450, 1.000);
+	}
+	20%, 40%, 60%, 80% {
+	  transform:translatey(0);
+	  animation-timing-function:cubic-bezier(0.170, 0.850, 0.450, 1.000);
+	}
+   10%, 30%, 50%, 70%, 90% {
+	  transform:translatey(-5vmax);
+	  animation-timing-function:cubic-bezier(0.900, 0.050, 0.700, 0.200);
+	}
+	100% {
+	  transform:translatey(0);
+	}
+}
   
+section:nth-of-type(3) div img{
+	animation-name: bouncingBanaan-animation;
+	animation-duration: 15s;
+    animation-delay: 10s;
+	animation-iteration-count: infinite;
+}
 
 
 
@@ -466,10 +485,52 @@ section:nth-of-type(3).swipe-over-element div {
 
 
 
+/**********************************/
+/**********************************/
+/***************error**************/
+/**********************************/
+/**********************************/
+.error {
+	background-image: url(../images/landscape_background_mobiel_error.png);
+}
 
+.error main header {
+	width: 100%;
+}
+.error main section {
+	background-color: var(--grijs);
+	border: 1.5px groove var(--zwart);
+	width: 38em;
+	/* margin: 15vmax auto; */
+	margin: 30vmax auto;
+	display: block;	
+	padding: 0;
+}
 
+.error main section div {
+	display: flex;	
+	font-size: 1vmax ;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--blauw);
+	color: #ffffff;
+	padding: 0 1em;
+}
 
+.error main section p {
+	padding: 1em 2em;
+}
 
+.error main section > a {
+	display: block;
+	padding: 0.7em;
+	margin: 1em auto;
+	width: fit-content;
+	background-color: var(--grijs);
+	border: 1.5px groove #000000; /* blijft altijd zwart */
+	color: #000000; /* blijft altijd zwart */
+	text-decoration: none;
+}
 
 
 
@@ -546,19 +607,10 @@ section:nth-of-type(3).swipe-over-element div {
 	/* einde grid view */
 
 	/* slideshow view */
-	/* section:nth-of-type(2) ul.slideshow-view li {
-		display: none;
-		margin: 4px auto;
-	} */
-	
 	section:nth-of-type(2) ul.slideshow-view li img {
 		height: 100%;
 		width: fit-content;
 	}
-	
-	/* section:nth-of-type(2) ul.slideshow-view li.active {
-		display: inline-block;
-	} */
 
 	.prev, .next {
 		height: 3.4vmax;
@@ -577,6 +629,17 @@ section:nth-of-type(3).swipe-over-element div {
 	}
 	/* einde slideshow view */
 	/*********section 2*********/
+
+
+	/***********error***********/
+	.error {
+		background-image: url(../images/landscape_background_desktop_error.png);
+	}
+
+	.error main section {
+		margin: 15vmax auto;
+	}
+	/***********error***********/
 }
 
 
@@ -638,3 +701,5 @@ section:nth-of-type(3).swipe-over-element div {
 	box-shadow: 0px 4px 4px 0px  var(--grijs);
 	/* margin: 0 auto; 
 } */
+
+
