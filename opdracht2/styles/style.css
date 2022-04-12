@@ -41,6 +41,7 @@ button, summary {
 :root {
     --main-font: 'PressStart2P';
 
+	--background: #C0C0C0;
 	--grijs: #C0C0C0;
 	--zwart: #000000;
 	--wit: #ffffff;
@@ -51,7 +52,7 @@ button, summary {
 
 @media (prefers-color-scheme: dark) {
     :root {
-		--grijs: #2c2c2c;
+		--background: #2c2c2c;
 		--zwart: #ffffff;
 		--wit: #070606;
 		--blauw: #000080;
@@ -75,7 +76,7 @@ button, summary {
 /**********************************/
 /**********************************/
 body {
-	background-color: var(--grijs);
+	background-color: var(--background);
 }
 
 main section:first-of-type p, main section:first-of-type button {
@@ -125,15 +126,11 @@ ul {
 /**************hover***************/
 /**********************************/
 /**********************************/
-/* header ul li:hover a, button:hover, .grid:hover, .list:hover, .location:hover, .tagged:hover {
-	box-shadow: 0px 4px 4px 0px var(--dropshadow) inset;
-} */
-
-header ul li:hover a, button:hover { /* wanneer je over button heen hovert*/
+header ul li:hover a, section:nth-of-type(2) div:hover { /* wanneer je over button heen hovert */
 	box-shadow: 0px 4px 4px 0px var(--dropshadow) inset;
 }
 
-button:active { /* wanneer button in wordt geklikt*/
+button:active, section:nth-of-type(2) div:active { /* wanneer button in wordt geklikt*/
 	background-color: var(--groen);
 	color: var(--wit);
 }
@@ -230,6 +227,7 @@ main section:first-of-type {
 	"img button button button" 
 	"naam naam naam naam"
 	"bio bio bio bio";
+	color: var(--zwart);
 }
 
 main section:first-of-type img {
@@ -293,6 +291,8 @@ main section:first-of-type button {
 	width: 85%;
 	height: 3.4vmax;
 	margin: 0 auto;
+	color: #000000; /* blijft altijd zwart */
+	border: 1.5px groove #000000; /* blijft altijd zwart */
 }
 
 
@@ -314,12 +314,18 @@ aside div {
 	justify-content: center;
 	padding: 0.7em;
 	margin: 0 0.5em;
-	border: 1.5px groove var(--zwart);
+	border: 1.5px groove #000000; /* blijft altijd zwart */
 	box-shadow: 0px 4px 4px 0px var(--dropshadow);
+	background-color: var(--grijs);
+	cursor: pointer;
 } 
 
+aside div.active {
+	border: 1.5px inset var(--groen);
+}
+
 aside div img {
-	width: 10px;
+	width: fit-content;
 	height: 10px; 
 }
 
@@ -328,32 +334,95 @@ aside div img {
 	opacity: 0;
 }
 
-section:nth-of-type(2) ul {
+
+/*  list & grid view */
+section:nth-of-type(2) ul, section:nth-of-type(2) ul.grid-view {
 	background-image:url('../images/landscape_background_mobile.png'); /* --> https://www.freecodecamp.org/news/how-to-add-an-image-url-to-your-div/ */
 	display: grid;
-	grid-template-columns: repeat(3, 1fr); /* 3 columns die allemaal 1fr breed zijn */
+	border: 1.5px groove black;
 	overflow: scroll;
-	border: 1.5px groove var(--zwart);
-	height: 56vmax;
 	padding: 4px;
+	height: 56vmax;
 }
 
-section:nth-of-type(2) ul li {
+section:nth-of-type(2) ul li, section:nth-of-type(2) ul.grid-view li {
 	margin: 4px;
-	cursor: pointer; 
+	/* cursor: pointer;  */
+	display: grid;
+	grid-template-columns: 1fr;
 }
 
-section:nth-of-type(2) ul li img {
-	width: 12.5vmax;
-	height: 12.5vmax;
+section:nth-of-type(2) ul li img, section:nth-of-type(2) ul.grid-view li img {
+	width: 40vmax;
+	aspect-ratio: 1/1; /* vierkant */
 	border: 1.5px solid #000000; /* blijft altijd zwart */
 	transition: transform ease-in-out 0.3s; /* foto vergroten */
+	margin: 0 auto;
 }
+/* einde list & grid view */
+
+
+
+/* grid view */
+section:nth-of-type(2) ul.grid-view {
+	grid-template-columns: repeat(3, 1fr); /* 3 columns die allemaal 1fr breed zijn */
+}
+
+section:nth-of-type(2) ul.grid-view li {
+	width: 12.5vmax;
+}
+	
+section:nth-of-type(2) ul.grid-view li img {
+	width: 12.5vmax;
+}
+/* einde grid view */
+
+
+
+/* slideshow view */
+section:nth-of-type(2) ul.slideshow-view li {
+	display: none;
+	margin: 4px auto;
+}
+  
+section:nth-of-type(2) ul.slideshow-view li img {
+	height: 90%;
+}
+  
+section:nth-of-type(2) ul.slideshow-view li.active {
+	display: inline-block;
+}
+
+
+.prev, .next {
+	height: 3.4vmax;
+	padding: 0.7em;
+	margin: 0 0.5em;
+	position: absolute;
+	bottom: 40px;
+	background-color: var(--grijs);
+	border: 1.5px groove #000000; /* blijft altijd zwart */
+}
+
+.prev {
+	left: 21px;
+}
+
+.next {
+	right: 21px;
+}
+/* einde slideshow view */
+  
+  
+  
+  
+  
+  
+
 
 section:nth-of-type(2) ul li img:hover { 
-	transform: scale(1.1); /* foto vergroten met hover */
+	transform: scale(1.02); /* foto vergroten met hover */
 }
-
 
 section:nth-of-type(2) ul.location li:not(.inLocation) {
 	display: none;
@@ -416,16 +485,118 @@ section:nth-of-type(2) ul.tagged li:not(.inTagged) {
 		height: 16px; 
 	}
 
-	section:nth-of-type(2) ul {
+	/*  list & grid view */
+	section:nth-of-type(2) ul, section:nth-of-type(2) ul.grid-view {
 		background-image:url('../images/landscape_background_desktop.png'); /* --> https://www.freecodecamp.org/news/how-to-add-an-image-url-to-your-div/ */
-		grid-template-columns: repeat(5, 1fr); /* 5 columns die allemaal 1fr breed zijn */
 		height: 85vmin;
 		padding: 10px;
   	}
   
-	section:nth-of-type(2) ul li img {
-		width: 32vmin;
-	  	height: 32vmin;
+	section:nth-of-type(2) ul li img, section:nth-of-type(2) ul.grid-view li img {
+		width: 75vmin;
 	}
+	/* einde list & grid view */
+	
+	/* grid view */
+	section:nth-of-type(2) ul.grid-view {
+		grid-template-columns: repeat(5, 1fr); /* 5 columns die allemaal 1fr breed zijn */
+	}
+	
+	section:nth-of-type(2) ul.grid-view li, section:nth-of-type(2) ul.grid-view li img {
+		width: 18.5vmax;
+	}
+	/* einde grid view */
+
+	/* slideshow view */
+	/* section:nth-of-type(2) ul.slideshow-view li {
+		display: none;
+		margin: 4px auto;
+	} */
+	
+	section:nth-of-type(2) ul.slideshow-view li img {
+		height: 100%;
+		width: fit-content;
+	}
+	
+	/* section:nth-of-type(2) ul.slideshow-view li.active {
+		display: inline-block;
+	} */
+
+	.prev, .next {
+		height: 3.4vmax;
+		position: absolute;
+		bottom: 283px;
+		background-color: var(--grijs);
+		border: 1.5px groove #000000; /* blijft altijd zwart */
+	}
+
+	.prev {
+		left: 25px;
+	}
+
+	.next {
+		right: 25px;
+	}
+	/* einde slideshow view */
 	/*********section 2*********/
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.hidden{
+	display: none;  
+  }
+
+.modalcontent {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+		top: 50%;
+	  
+	  width: 70%;
+	  /* height: 30%; 
+	background-color: var(--grijs);
+	border: 1.5px groove var(--zwart);
+
+	}
+  div h3{
+    text-align: left;
+	background-color: var(--blauw);
+	color: var(--wit);
+   padding: 0.5em;
+    margin: 0.5em;
+  }
+  
+  div p{
+   margin: 3em;
+  }
+
+
+  div button {
+	background-color: var(--grijs);
+	border: 1.5px groove var(--zwart);
+	box-shadow: 0px 4px 4px 0px  var(--grijs);
+	/* margin: 0 auto; 
+} */
