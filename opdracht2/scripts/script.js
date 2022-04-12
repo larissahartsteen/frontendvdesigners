@@ -64,10 +64,9 @@ function filterenMaar(event) {
     deLijst.classList.remove("slideshow");
     deLijst.classList.remove("location");
     deLijst.classList.remove("tagged");
-    
+
     deLijst.classList.add(hetNieuweFilter); // voegt de nieuwe waarde als class toe aan de ul
 }
-
 
 function showInList() {
     let deLijst = document.querySelector("section:nth-of-type(2) ul"); // lijst in html wordt opgezocht
@@ -90,15 +89,13 @@ function showInSlideshow() {
 
 
 
-
 ///////////////////////////
 ///////////////////////////
 // slideshow //////////////
 ///////////////////////////
 ///////////////////////////
-// Code that moves to the next slide
-nextButton.addEventListener("click", function() {
-        slides[currentSlide].classList.remove("active");
+nextButton.addEventListener("click", function() { // als je op de 'nextButton' klikt wordt de volgende function uitgevoerd
+        slides[currentSlide].classList.remove("active"); 
         currentSlide ++;
     if (currentSlide === slides.length)
         currentSlide = 0;
@@ -106,8 +103,7 @@ nextButton.addEventListener("click", function() {
 });
 
 
-// Code that moves to the previous slide
-previousButton.addEventListener("click", function () {
+previousButton.addEventListener("click", function () { // als je op de 'nextButton' klikt wordt de volgende function uitgevoerd
         slides[currentSlide].classList.remove("active");
         currentSlide --;
     if (currentSlide < 0)
@@ -116,8 +112,32 @@ previousButton.addEventListener("click", function () {
 });
 
 
+function doorSlidesMetToetsen(event) {
+    switch(event.key) {/* bepalen welke toets is ingedrukt */
 
+    case "ArrowRight":/* als dat de ArrowRight is dan dit doen */  
+        slides[currentSlide].classList.remove("active");
+        currentSlide --;
+    if (currentSlide < 0)
+        currentSlide = (slides.length - 1);
+        slides[currentSlide].classList.add("active");
+    break; /* break - zodat de andere toetsen niet onnodig gecheckt worden */
 
+    case "ArrowLeft": /* als dat de ArrowLeft is dan dit doen */
+        slides[currentSlide].classList.remove("active");
+        currentSlide ++;
+    if (currentSlide === slides.length)
+        currentSlide = 0;
+        slides[currentSlide].classList.add("active");
+    break; /* break - zodat de andere toetsen niet onnodig gecheckt worden */
+    // case "Escape":
+    // break; 
+    }
+}
+document.addEventListener('keydown', doorSlidesMetToetsen); /* het document luistert naar toetsaanslagen */ /* bij een toetsaanslag wordt de functie openMenuMetToetsen uitgevoerd */
+  
+  
+  
 
 
 
@@ -142,5 +162,50 @@ previousButton.addEventListener("click", function () {
 //       sessionStorage.setItem("modal", "none");
 //     };
 //   };
+
+
+
+
+
+
+
+
+
+
+
+
+/**********************/
+/* swipe-over-element */
+/**********************/
+
+/* https://gist.github.com/akella/f1e787d780afe1c1159e99c8bed92b55 */
+
+/* testen op je telefoon of in de inspector --> touch device */
+
+var deLamp = document.querySelector('section:nth-of-type(3).swipe-over-element div');
+var touchstartX = 0;
+var touchendX = 0;
+
+var gesturedZone = deLamp;
+
+gesturedZone.addEventListener('touchstart', function(event) {
+  touchstartX = event.changedTouches[0].screenX;
+}, false);
+
+gesturedZone.addEventListener('touchend', function(event) {
+  touchendX = event.changedTouches[0].screenX;
+  handleGesure();
+}, false); 
+
+function handleGesure() {
+  /* swipe naar links */
+  if (touchendX < touchstartX) {
+    deLamp.classList.add("erIsOverMijGeswipet");
+  }
+  /* swipe naar rechts */
+  if (touchendX > touchstartX) {
+    deLamp.classList.remove("erIsOverMijGeswipet");
+  }
+}
   
   

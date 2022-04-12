@@ -414,12 +414,6 @@ section:nth-of-type(2) ul.slideshow-view li.active {
 /* einde slideshow view */
   
   
-  
-  
-  
-  
-
-
 section:nth-of-type(2) ul li img:hover { 
 	transform: scale(1.02); /* foto vergroten met hover */
 }
@@ -432,6 +426,50 @@ section:nth-of-type(2) ul.tagged li:not(.inTagged) {
 	display: none;
 }
 /*********section 2*********/
+
+
+
+
+
+
+
+
+
+section:nth-of-type(3).swipe-over-element div {
+	margin:.5em;
+	padding:1em;
+	border-radius:.5em; 
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	
+	/* jouw code hier */
+	transition:1s;
+  }
+  
+  section:nth-of-type(3).swipe-over-element div.erIsOverMijGeswipet {
+	/* jouw code hier */
+	transform: translateX(-210%);
+  }
+  
+  section:nth-of-type(3).swipe-over-element div img {
+	width: auto;
+	height: 25vmax;
+	vertical-align:middle;
+  }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
 
 
 
