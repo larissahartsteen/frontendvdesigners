@@ -20,7 +20,11 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   4. https://codepen.io/Mashbu01/pen/VmLVQR
   5. https://www.w3schools.com/howto/howto_css_rounded_images.asp
   6. https://www.codegrepper.com/code-examples/css/how+to+use+a+blank+space+with+grid+template+areas+css
-
+  7. https://yogeshchauhan.com/how-to-use-images-instead-of-html-radio-buttons-using-css/
+  8. https://www.freecodecamp.org/news/how-to-add-an-image-url-to-your-div/
+  9. https://codepen.io/shooft/pen/NWwdaro?editors=0010 
+  10. https://codepen.io/shooft/pen/YzENrWE?editors=1000
+  
 
 
 ## Opdracht 1 plan
@@ -104,15 +108,16 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   ### Je ambitie: 
   Aan deze technieken/punten wil ik werken:
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
+  - Ik wil leren hoe ik een 'slideshow' kan maken
+  - Ik wil leren hoe ik naar de volgende/vorige foto ga dmv toetsen (pijltjes)
+  - Ik wil leren hoe je een lijst van foto's kan filter op categorie
+  - Ik wil leren hoe je een follow/unfollow button maakt
+  - Ik wil leren hoe met een element kan interacteren dmv swipen
 </details>
 
 
 
-## Opdracht 2 test
+<!-- ## Opdracht 2 test
 
 <details>
   <summary>uitwerken na testen (week 6/7)</summary>
@@ -139,7 +144,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   ### Bevinding 3:
   ...
-</details>
+</details> -->
 
 
 
@@ -149,17 +154,49 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken bij afronden opdracht (voor week 8)</summary>
 
   ### Je uitkomst - karakteristiek screenshot(s):
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/error_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/follow_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/unfollow_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/grid_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+
+  
+
 
 
   ### Dit ging goed/Heb ik geleerd: 
-  Korte omschrijving met plaatje(s)
+- Ik heb geleerd hoe ik een lijst met foto's kan filteren op categorie/eigenschap
+<!-- <img src="readme-images/" width="375px" alt="top"> -->
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="top">
+- Ik heb geleerd hoe je een button maakt waarbij je in dit geval het aantal volgers weer kan geven
+<img src="readme-images/unfollow_mobiel.png" width="375px" alt="top">
+<img src="readme-images/follow_mobiel.png" width="375px" alt="top">
+
+- Ik heb geleerd hoe ik naar de volgende en/of vorige slide kan gaan met buttons
+- Ik heb geleerd hoe ik naar de volgende en/of vorige slide kan gaan dmv van toetsen (pijltjes)
+<img src="readme-images/slideshow_mobiel.png" width="375px" alt="top">
+
+- Ik heb geleerd hoe je een toggle maakt waarmee je van 'list view' naar 'grid view' kan gaan
+<img src="readme-images/grid_mobiel.png" width="375px" alt="top">
+<img src="readme-images/list_mobiel.png" width="375px" alt="top">
+
+- Ik heb geleerd hoe je met een element kan interacteren dmv swipen
+<img src="readme-images/banaan_mobiel.png" width="375px" alt="top">
 
 
-  ### Dit was lastig/Is niet gelukt:
-  Korte omschrijving met plaatje(s)
+### Dit was lastig/Is niet gelukt:
+- Ik vond het lastig om de buttons van 'previous/next' alleen te laten zien wanneer je in 'slideshow view' zit
+<img src="readme-images/" width="375px" alt="bummer">
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="bummer">
+- Het is mij niet meer gelukt om foto's naar de prullenbak te 'draggen', er bleven constant dingen breken
+<img src="readme-images/" width="375px" alt="bummer">
+
+- Ik had graag een stuk meer met javascript willen doen, maar ik vind dit nog steed een lastig onderdeel. Mijn storyboard was moeilijker dan dat ik aankon.
+<img src="readme-images/" width="375px" alt="bummer">
+
 </details>

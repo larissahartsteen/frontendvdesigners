@@ -441,8 +441,14 @@ section:nth-of-type(3).swipeOverBanaan div {
 	right: 0;
 	transition: 1s;
 	z-index: 3;
-
 }
+
+/* section:nth-of-type(3).swipeOverBanaan div img{
+	position: sticky;
+	bottom: 0;
+	right: 0;
+
+} */
   
 section:nth-of-type(3).swipeOverBanaan div.erIsOverMijGeswipet {
 	transform: translateX(-210%);
@@ -640,6 +646,13 @@ section:nth-of-type(3) div img{
 		margin: 15vmax auto;
 	}
 	/***********error***********/
+
+
+	/******dansende banaan******/
+	section:nth-of-type(3).swipeOverBanaan div {
+		top: 100vmin;
+	}
+	/******dansende banaan******/
 }
 
 
