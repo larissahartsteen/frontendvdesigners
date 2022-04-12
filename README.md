@@ -158,14 +158,10 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <img src="readme-images/follow_mobiel.png" width="375px" alt="uitkomst opdracht 2">
   <img src="readme-images/unfollow_mobiel.png" width="375px" alt="uitkomst opdracht 2">
   <img src="readme-images/grid_mobiel.png" width="375px" alt="uitkomst opdracht 2">
-  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
-  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
-  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
-  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
-  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
-  <img src="readme-images/_mobiel.png" width="375px" alt="uitkomst opdracht 2">
-
-  
+  <img src="readme-images/banaan_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/empty_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/list_mobiel.png" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/slideshow_mobiel.png" width="375px" alt="uitkomst opdracht 2">
 
 
 
@@ -191,12 +187,12 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 ### Dit was lastig/Is niet gelukt:
 - Ik vond het lastig om de buttons van 'previous/next' alleen te laten zien wanneer je in 'slideshow view' zit
-<img src="readme-images/" width="375px" alt="bummer">
+<img src="readme-images/buttons_mobiel.png" width="375px" alt="bummer">
 
 - Het is mij niet meer gelukt om foto's naar de prullenbak te 'draggen', er bleven constant dingen breken
-<img src="readme-images/" width="375px" alt="bummer">
+<!-- <img src="readme-images/" width="375px" alt="bummer"> -->
 
 - Ik had graag een stuk meer met javascript willen doen, maar ik vind dit nog steed een lastig onderdeel. Mijn storyboard was moeilijker dan dat ik aankon.
-<img src="readme-images/" width="375px" alt="bummer">
+<!-- <img src="readme-images/" width="375px" alt="bummer"> -->
 
 </details>
