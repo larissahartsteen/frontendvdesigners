@@ -104,7 +104,7 @@ nextButton.addEventListener("click", function() { // als je op de 'nextButton' k
         slides[currentSlide].classList.remove("active"); // var 'slides' neemt waarde van var 'currentSlide' en verwijderd de class 'active'
         currentSlide ++; // er wordt 1 bij opgeteld (++), de volgende slide wordt weergegeven
     if (currentSlide === slides.length) // === gelijk aan, moet zelfde type zijn zoals strings --> slides.length wijst naar de laatste slide in de lijst
-        currentSlide = 0; // als de 'cuurentSlide' gelijk staan aan de lengte van de slides (laatste) gaat deze terug naar de eerste slide (0)
+        currentSlide = 0; // als de 'curentSlide' gelijk staat aan de lengte van de slides (laatste) gaat deze terug naar de eerste slide (0)
         slides[currentSlide].classList.add("active"); // var 'slides' neemt waarde van var 'currentSlide' en voegt hier de class 'active' aan toe
 });
 
@@ -151,18 +151,20 @@ document.addEventListener('keydown', doorSlidesMetToetsen); // het document luis
 // swipen /////////////////
 ///////////////////////////
 ///////////////////////////
-bewegingsZone.addEventListener('touchstart', function(event) { // touchstart vindt plaats wanneer de gebruiker een element 'touched'
-    touchstartX = event.changedTouches[0].screenX; // touchstartX is een lijst met de aanraakpunten die actief zijn geworden met de huidige gebeurtenis 
+bewegingsZone.addEventListener('touchstart', function(event) { // wanneer er over de banaan wordt geswiped wordt de volgende functie afgespeeld
+    // touchstart is een lijst met de aanraakpunten die actief zijn geworden met de huidige gebeurtenis 
+    // touchstart vindt plaats wanneer de gebruiker een element 'touched'
+    touchstartX = event.changedTouches[0].screenX; 
 }, false);
 
-bewegingsZone.addEventListener('touchend', function(event) {
-    touchendX = event.changedTouches[0].screenX; // touchendX is een lijst van de aanraakpunten die van het oppervlak zijn verwijderd (de reeks aanraakpunten die overeenkomen met vingers die het oppervlak niet meer raken)
+bewegingsZone.addEventListener('touchend', function(event) { // touchend is een lijst van de aanraakpunten die van het oppervlak zijn verwijderd (de reeks aanraakpunten die overeenkomen met vingers die het oppervlak niet meer raken)
+    touchendX = event.changedTouches[0].screenX; 
     handleGesure();
 }, false); 
 
 function handleGesure() {
     if (touchendX < touchstartX) { // naar links swipen
-        deBanaan.classList.add("erIsOverMijGeswipet");
+        deBanaan.classList.add("erIsOverMijGeswipet"); // .erIsOverMijGeswipet wordt aan css toegevoegd en zorgt dat banaan van scherm af gaat
     }
     if (touchendX > touchstartX) { // naar rechts swipen
         deBanaan.classList.remove("erIsOverMijGeswipet");
