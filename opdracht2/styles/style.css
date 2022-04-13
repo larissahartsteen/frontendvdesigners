@@ -214,7 +214,7 @@ hr {
 main section:first-of-type {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr); /* 4 columns die allemaal 1fr breed zijn */
-	grid-template-rows: 4em 3em 6em 2em;
+	grid-template-rows: 4em 3em 6em 2em; /* verschillende hoogtes voor styling */
 	grid-template-areas: 
 	"img aantalP aantalFS aantalFG"
 	"img posts followers following"
@@ -304,7 +304,7 @@ aside {
 
 aside div {
 	display: flex;
-	flex-grow: 1;
+	flex-grow: 1; /* specificeert hoeveel het item zal groeien ten opzichte van de rest van de flex items in dezelfde container */
 	justify-content: center;
 	padding: 0.7em;
 	margin: 0 0.5em;
@@ -334,14 +334,13 @@ section:nth-of-type(2) ul, section:nth-of-type(2) ul.grid-view {
 	background-image:url('../images/landscape_background_mobile.png'); /* --> https://www.freecodecamp.org/news/how-to-add-an-image-url-to-your-div/ */
 	display: grid;
 	border: 1.5px groove black;
-	overflow: scroll;
+	overflow: scroll; /* specificeert wat er moet gebeuren als de content overloopt */
 	padding: 4px;
 	height: 56vmax;
 }
 
 section:nth-of-type(2) ul li, section:nth-of-type(2) ul.grid-view li {
 	margin: 4px;
-	/* cursor: pointer;  */
 	display: grid;
 	grid-template-columns: 1fr;
 }
@@ -442,13 +441,6 @@ section:nth-of-type(3).swipeOverBanaan div {
 	transition: 1s;
 	z-index: 3;
 }
-
-/* section:nth-of-type(3).swipeOverBanaan div img{
-	position: sticky;
-	bottom: 0;
-	right: 0;
-
-} */
   
 section:nth-of-type(3).swipeOverBanaan div.erIsOverMijGeswipet {
 	transform: translateX(-210%);
@@ -457,24 +449,24 @@ section:nth-of-type(3).swipeOverBanaan div.erIsOverMijGeswipet {
 section:nth-of-type(3).swipeOverBanaan div img {
 	width: auto;
 	height: 25vmax;
-	vertical-align: middle;
+	vertical-align: middle; /* staan op dezelfde hoogte */
 }
   
 @keyframes bouncingBanaan-animation {
 	0% {
-	  transform:translatey(100vmax);
-	  animation-timing-function:cubic-bezier(0.170, 0.850, 0.450, 1.000);
+	  transform: translatey(100vmax); /* verplaatst element verticaal */
+	  animation-timing-function: cubic-bezier(0.170, 0.850, 0.450, 1.000);
 	}
 	20%, 40%, 60%, 80% {
-	  transform:translatey(0);
-	  animation-timing-function:cubic-bezier(0.170, 0.850, 0.450, 1.000);
+	  transform: translatey(0);
+	  animation-timing-function: cubic-bezier(0.170, 0.850, 0.450, 1.000);
 	}
    10%, 30%, 50%, 70%, 90% {
-	  transform:translatey(-5vmax);
-	  animation-timing-function:cubic-bezier(0.900, 0.050, 0.700, 0.200);
+	  transform: translatey(-5vmax);
+	  animation-timing-function: cubic-bezier(0.900, 0.050, 0.700, 0.200);
 	}
 	100% {
-	  transform:translatey(0);
+	  transform: translatey(0);
 	}
 }
   
@@ -507,9 +499,8 @@ section:nth-of-type(3) div img{
 	background-color: var(--grijs);
 	border: 1.5px groove var(--zwart);
 	width: 38em;
-	/* margin: 15vmax auto; */
 	margin: 30vmax auto;
-	display: block;	
+	display: block;	/* begint op nieuwe regel en neemt de hele breedte in beslag */
 	padding: 0;
 }
 
@@ -714,5 +705,3 @@ section:nth-of-type(3) div img{
 	box-shadow: 0px 4px 4px 0px  var(--grijs);
 	/* margin: 0 auto; 
 } */
-
-
